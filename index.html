@@ -6,29 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <h1>Сервис комментариев со спам фильтром</h1>
-    <h2>Оставьте ваш комментарий</h2>
-    <form action="">
-        <p>Введите ваше ФИО:</p>
-        <input id="name" type="text">
-        <p>Введите ссылку вашего аватара:</p>
-        <input id="img" type="text">
-        <p>Оставьте комментарий</p>
-        <input id="comment" type="text">
-    </form>
-    <button onclick="getResult()">Отправить</button>
-    <div class="chat"></div>
-    <h2 class="chat__title">Чат</h2>
-    <div class="cover">
-        <img src="#" alt="Аватар" class="chat__img" id="chatImg"></img>
+    <div class="container">
+        <h2>Оставьте ваш комментарий</h2>
+        <form class="form" action="">
+            <p>Введите ваше ФИО:</p>
+            <input id="name" type="text">
+            <div class="author">
+                <span>Показывать ваше имя?</span>
+                <label for="yes">Да<input type="radio" name="author" value="yes" id="yes" />
+                </label>
+                <label for="no">Нет<input type="radio" name="author" value="no" id="no" />
+                </label>
+            </div>
+            <p>Введите ссылку вашего аватара:</p>
+            <input id="img" type="text">
+            <p>Оставьте комментарий:</p>
+            <input id="comment" type="text">
+        </form>
+        <button onclick="getResult()">Отправить</button>
+        <div class="chat">
+            <h2 class="chat__title">Чат</h2>
+            <div class="cover">
+                <img src="#" alt="Аватар" class="chat__img" id="chatImg"></img>
+            </div>
+            <div class="chat__name" id="chatName"></div>
+            <div class="chat__time" id="timeCode"></div>
+            <div class="chat__comment" id="chatComment"></div>
+        </div>
     </div>
-    <div class="chat__name" id="chatName"></div>
-    <div class="chat__comment" id="chatComment"></div>
-    <div class="chat__time" id="timeCode"></div>
-
     <script src="index.js"></script>
 </body>
 

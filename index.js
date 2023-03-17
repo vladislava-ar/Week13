@@ -6,6 +6,8 @@ const userName = document.querySelector('.chat__name');
 const userChat = document.querySelector('.chat__comment');
 const userPhoto = document.querySelector('.chat__img');
 const timeCode = document.getElementById('timeCode');
+const yes = document.getElementById('yes');
+const no = document.getElementById('no');
 
 function checkName() {
 	const name = firstName.value;
@@ -31,11 +33,59 @@ function addTime() {
 	timeCode.innerHTML = now;
 }
 
+let photoRandom = Math.round(Math.random() * 10 - 4);
+
+function addPhoto() {
+	if (photo.value !== '') {
+		userPhoto.src = photo.value;
+	} else {
+		switch (photoRandom) {
+			case 1:
+				userPhoto.src = './Images/img1.jpg';
+				break;
+			case 2:
+				userPhoto.src = './Images/img2.jpg';
+				break;
+			case 3:
+				userPhoto.src = './Images/img3.jpg';
+				break;
+			case 4:
+				userPhoto.src = './Images/img4.jpg';
+				break;
+			case 5:
+				userPhoto.src = './Images/img5.jpg';
+				break;
+			case 6:
+				userPhoto.src = './Images/img6.jpg';
+				break;
+			default:
+				userPhoto.src = './Images/img6.jpg';
+		}
+	}
+}
+
+function noName() {
+	if (firstName.value !== "") {
+		userName.textContent = checkName();
+	} else {
+		userName.textContent = "Пользователь";
+}
+}
+
+function showName() {
+	if (yes.checked == true) {
+		userName.textContent = checkName();
+	} else if (no.checked == true) {
+		userName.textContent = "Пользователь";
+	}
+}
+
 function getResult() {
-	checkName();
+	noName();
 	checkSpam();
 	addTime();
-	userPhoto.src = photo.value;
+	addPhoto();
+	showName();
     document.getElementById("name").value = "";
     document.getElementById("img").value = "";
     document.getElementById("comment").value = "";
